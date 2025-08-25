@@ -41,7 +41,7 @@ body {
 .gradient-5 { background: linear-gradient(to bottom, #e1bee7, #8e24aa); }
 
 
-/* YENİ VE GELİŞTİRİLMİŞ WRAPPER STİLİ */
+
 #game-wrapper {
     /* DEĞİŞTİ: Konumlandırma için position: absolute kullanıyoruz */
     position: absolute;
@@ -52,12 +52,8 @@ body {
     width: 800px;
     height: 600px;
 
-    /* DEĞİŞTİ: transform-origin artık önemli değil, çünkü translate ile ortalayacağız */
-    /* JS tarafından ayarlanacak transform ile hem ölçeklenip hem ortalanacak */
 }
 
-/* --- AŞAĞIDAKİ TÜM STİLLER SİZİN ORİJİNAL KODUNUZLA AYNI --- */
-/* --- HİÇBİR DEĞİŞİKLİK YAPILMADI --- */
 
 canvas {
     background-color: transparent;
