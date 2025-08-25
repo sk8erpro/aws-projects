@@ -33,7 +33,7 @@ let activeBgLayerIndex = 0; // YENİ: Hangi katmanın aktif olduğunu takip et (
 
 const keys = { space: false };
 
-// --- SINIFLAR (Player, Platform, Particle, FloatingText) - Değişiklik Yok ---
+// --- SINIFLAR (Player, Platform, Particle, FloatingText) 
 class Player {
     constructor(x, y) { this.x = x; this.y = y; this.width = 30; this.height = 30; this.color = '#FF6347'; this.shadowColor = 'rgba(0, 0, 0, 0.3)'; this.vx = 0; this.vy = 0; this.isJumping = false; }
     draw() { ctx.shadowColor = this.shadowColor; ctx.shadowBlur = 10; ctx.shadowOffsetX = 5; ctx.shadowOffsetY = 5; ctx.fillStyle = this.color; ctx.fillRect(this.x, this.y, this.width, this.height); ctx.shadowColor = 'transparent'; ctx.shadowBlur = 0; }
@@ -61,7 +61,7 @@ class FloatingText {
     draw() { ctx.save(); ctx.font = '24px Poppins'; ctx.fillStyle = `rgba(${this.color}, ${this.opacity})`; ctx.textAlign = 'center'; ctx.fillText(this.text, this.x, this.y); ctx.restore(); }
 }
 
-// YENİ: Arka Plan Değiştirme Fonksiyonu (Cross-fade Mantığı)
+// Arka Plan Değiştirme Fonksiyonu (Cross-fade Mantığı)
 function changeBackground() {
     let newIndex;
     do { newIndex = Math.floor(Math.random() * 6); }
@@ -96,7 +96,7 @@ function init() {
     gameLoop();
 }
 
-// --- DİĞER FONKSİYONLAR (Değişiklik Yok) ---
+// --- DİĞER FONKSİYONLAR 
 function addNewPlatform() { const last = platforms[platforms.length - 1]; const hDist = MIN_PLATFORM_DISTANCE + Math.random() * (MAX_PLATFORM_DISTANCE - MIN_PLATFORM_DISTANCE); const nX = last.x + last.width + hDist; const vDist = MIN_STAIR_HEIGHT + Math.random() * (MAX_STAIR_HEIGHT - MIN_STAIR_HEIGHT); const nY = last.y - vDist; const nW = 120 + Math.random() * 80; platforms.push(new Platform(nX, nY, nW)); }
 function cancelCharge() { isCharging = false; chargePower = 0; fullPowerHoldTimer = 0; }
 function drawPowerBar() { if (isCharging) { const barW = 50; const barH = 10; const x = player.x + player.width / 2 - barW / 2; const y = player.y - 20; ctx.fillStyle = '#ddd'; ctx.fillRect(x, y, barW, barH); const pW = (chargePower / MAX_CHARGE_POWER) * barW; if (chargePower >= MAX_CHARGE_POWER && fullPowerHoldTimer > 0) { ctx.fillStyle = `hsl(60, 100%, 50%)`; } else { const hue = 120 - (chargePower / MAX_CHARGE_POWER) * 120; ctx.fillStyle = `hsl(${hue}, 100%, 50%)`; } ctx.fillRect(x, y, pW, barH); } }
@@ -206,7 +206,7 @@ function resizeGame() {
     // Ekrana sığacak en uygun ölçek oranını hesapla
     const scale = Math.min(screenWidth / gameWidth, screenHeight / gameHeight);
 
-    // DEĞİŞTİ: Hem ölçeklemeyi (scale) hem de ortalamayı (translate) tek bir transform kuralıyla yap.
+    
     // translate(-50%, -50%) kuralı, wrapper'ın kendi merkezini CSS'deki top: 50%; left: 50%; noktasına hizalar.
     // Bu, her durumda mükemmel ortalamayı garanti eder.
     gameWrapper.style.transform = `translate(-50%, -50%) scale(${scale})`;
