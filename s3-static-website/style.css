@@ -5,7 +5,7 @@
 }
 
 body {
-    /* DEĞİŞTİ: Flexbox'ı kaldırıyoruz, çünkü wrapper'ı absolute konumlandıracağız */
+    
     font-family: 'Poppins', sans-serif;
     overflow: hidden;
     background-color: #000;
@@ -13,7 +13,7 @@ body {
     width: 100vw;
 }
 
-/* Arka Plan Sistemi (Değişiklik yok) */
+/* Arka Plan Sistemi */
 #background-container {
     position: absolute;
     top: 0;
@@ -42,8 +42,7 @@ body {
 
 
 
-#game-wrapper {
-    /* DEĞİŞTİ: Konumlandırma için position: absolute kullanıyoruz */
+#game-wrapper { 
     position: absolute;
     /* JS tarafından ayarlanacak */
     top: 50%;
